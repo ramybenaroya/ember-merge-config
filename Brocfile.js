@@ -3,7 +3,11 @@
 var emberMergeConfig  = require('./index');
 var EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 
-emberMergeConfig.applyMergeConfig(EmberAddon.prototype.appConstructor);
+var EmberApp = emberMergeConfig.getConstructorForEmberAppWithMergedConfig(EmberAddon.prototype.appConstructor);
+
+EmberAddon.prototype = Object.create(EmberApp.prototype);
+EmberAddon.prototype.constructor = EmberAddon;
+EmberAddon.prototype.appConstructor = EmberApp.prototype.constructor;
 
 var app = new EmberAddon({
 	'ember-merge-config': {
