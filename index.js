@@ -6,8 +6,9 @@ module.exports = {
 	getConstructorForEmberAppWithMergedConfig: function(EmberApp) {
 		var sel;
 
-		function EmberAppWithMergedConfig(options) {
-			return EmberApp.call(this, options);
+		function EmberAppWithMergedConfig() {
+			var args = Array.prototype.slice.call(arguments);
+			return EmberApp.apply(this, args);
 		}
 
 		EmberAppWithMergedConfig.prototype = Object.create(EmberApp.prototype);
