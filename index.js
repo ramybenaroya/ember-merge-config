@@ -73,7 +73,7 @@ function getInjectedContent(options) {
 			'\t\t\tparsedConfigToMerge = window["' + varName + '"];',
 			isBase64 ? [
 				'\t\t\tif (typeof window["' + varName + '"] === "string") {',
-				'\t\t\t\tparsedConfigToMerge = JSON.parse(atob(window["' + varName + '"]);',
+				'\t\t\t\tparsedConfigToMerge = JSON.parse(atob(window["' + varName + '"]));',
 				'\t\t\t}',
 			].join('\n') : '',
 			'\t\t\tEmber[\'default\'].$.extend(true, config, parsedConfigToMerge);',
