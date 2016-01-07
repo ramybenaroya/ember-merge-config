@@ -1,6 +1,6 @@
 {
   "name": "ember-merge-config",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "main": "index.js",
   "description": "Merge Ember config module with global object",
   "directories": {
